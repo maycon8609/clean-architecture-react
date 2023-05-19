@@ -1,13 +1,13 @@
 {
   "compilerOptions": {
-    "target": "ES5",
+    "target": "es5",
     "lib": [
-      "DOM",
-      "DOM.Iterable",
-      "ESNext"
+      "dom",
+      "dom.iterable",
+      "esnext"
     ],
     "esModuleInterop": true,
-    "module": "ESNext",
+    "module": "esnext",
     "moduleResolution": "node",
     "jsx": "react",
     "rootDir": "src",
