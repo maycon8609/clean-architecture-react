@@ -1,3 +1,10 @@
 node_modules
 .vscode
+.jest
 coverage
+dist
+src/ui/assets/*
+.prettierignore
+.gitattributes
+.gitignore
+yarn.lock
