@@ -21,7 +21,7 @@
           "yarn.lock",
           "CHANGELOG.md"
         ],
-        "message": "chore: generate version ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
+        "message": "chore: generate version ${nextRelease.version} [skip ci]"
       }
     ],
     "@semantic-release/github"
