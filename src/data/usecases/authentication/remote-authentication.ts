@@ -1,5 +1,5 @@
-import { HttpPostClient } from '../../protocols/http/http-post-client'
-import { AuthenticationParams } from '../../../domain/usecases/authentication'
+import { HttpPostClient } from '@data/protocols/http/http-post-client'
+import { AuthenticationParams } from '@domain/usecases/authentication'
 
 export class RemoteAuthentication {
   // eslint-disable-next-line no-useless-constructor
