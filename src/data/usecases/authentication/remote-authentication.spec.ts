@@ -1,10 +1,10 @@
 import { faker } from '@faker-js/faker'
 
-import { HttpStatusCode } from '@data/protocols/http/http-response'
-import { HttpPostClientSpy } from '@data/test/mock-http-client'
+import { HttpStatusCode } from '@data/protocols/http'
+import { HttpPostClientSpy } from '@data/test'
 
-import { InvalidCredentialsError } from '@domain/errors/invalid-credentials-error'
-import { mockAuthentication } from '@domain/test/authentication'
+import { InvalidCredentialsError } from '@domain/errors'
+import { mockAuthentication } from '@domain/test'
 
 import { RemoteAuthentication } from './remote-authentication'
 
