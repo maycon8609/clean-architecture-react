@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/maycon8609/clean-architecture-react/compare/v1.1.0...v1.2.0) (2023-05-29)
+
+
+### Features
+
+* test to generate release notes ([d330f60](https://github.com/maycon8609/clean-architecture-react/commit/d330f601d00270187d4ea8f9495a7a3c0d78b2ba))
+
 # [1.1.0](https://github.com/maycon8609/clean-architecture-react/compare/v1.0.0...v1.1.0) (2023-05-29)
 
 
