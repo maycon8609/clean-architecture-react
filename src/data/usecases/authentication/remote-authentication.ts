@@ -1,13 +1,17 @@
 import { HttpPostClient, HttpStatusCode } from '@data/protocols/http'
 
 import { InvalidCredentialsError, UnexpectedError } from '@domain/errors'
+import { AccountModel } from '@domain/models'
 import { AuthenticationParams } from '@domain/usecases'
 
 export class RemoteAuthentication {
   // eslint-disable-next-line no-useless-constructor
   constructor(
     private readonly url: string,
-    private readonly httpPostClient: HttpPostClient
+    private readonly httpPostClient: HttpPostClient<
+      AuthenticationParams,
+      AccountModel
+    >
   ) {}
 
   async auth(params: AuthenticationParams): Promise<void> {
