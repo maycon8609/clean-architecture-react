@@ -2,9 +2,9 @@ import { HttpPostClient, HttpStatusCode } from '@data/protocols/http'
 
 import { InvalidCredentialsError, UnexpectedError } from '@domain/errors'
 import { AccountModel } from '@domain/models'
-import { AuthenticationParams } from '@domain/usecases'
+import { Authentication, AuthenticationParams } from '@domain/usecases'
 
-export class RemoteAuthentication {
+export class RemoteAuthentication implements Authentication {
   // eslint-disable-next-line no-useless-constructor
   constructor(
     private readonly url: string,
@@ -14,7 +14,7 @@ export class RemoteAuthentication {
     >
   ) {}
 
-  async auth(params: AuthenticationParams): Promise<void> {
+  async auth(params: AuthenticationParams): Promise<AccountModel> {
     const httpResponse = await this.httpPostClient.post({
       url: this.url,
       body: params
@@ -22,7 +22,7 @@ export class RemoteAuthentication {
 
     switch (httpResponse.statusCode) {
       case HttpStatusCode.ok:
-        break
+        return httpResponse.body
       case HttpStatusCode.unauthorized:
         throw new InvalidCredentialsError()
       default:
