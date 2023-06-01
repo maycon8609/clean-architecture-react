@@ -1,3 +1,13 @@
+# [1.3.0](https://github.com/maycon8609/clean-architecture-react/compare/v1.2.0...v1.3.0) (2023-06-01)
+
+
+### Features
+
+* ensure AxiosHttpClient calls axios with correct body ([fc2dda3](https://github.com/maycon8609/clean-architecture-react/commit/fc2dda379fcfc3d8fcc2f9c207c825d241a39370))
+* ensure AxiosHttpClient calls axios with correct URL ([c5b028b](https://github.com/maycon8609/clean-architecture-react/commit/c5b028b1256b9b3474a35d26bc879f17d04a05d2))
+* ensure AxiosHttpClient calls axios with correct verb ([291ca48](https://github.com/maycon8609/clean-architecture-react/commit/291ca4845795fbf3327bce2be97d1ddfd12f4ba2))
+* ensure AxiosHttpClient returns correct values ([5988dbe](https://github.com/maycon8609/clean-architecture-react/commit/5988dbe8e4c28168234872441bc378f1e5b5e961))
+
 # [1.2.0](https://github.com/maycon8609/clean-architecture-react/compare/v1.1.0...v1.2.0) (2023-05-29)
 
 
