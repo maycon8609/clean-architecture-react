@@ -3,6 +3,7 @@ node_modules
 .jest
 coverage
 dist
+public
 src/ui/assets/*
 .prettierignore
 .gitattributes

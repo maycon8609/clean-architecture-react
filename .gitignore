@@ -9,6 +9,7 @@
 # production
 /dist
 /build
+/public/js
 
 # misc
 .DS_Store
