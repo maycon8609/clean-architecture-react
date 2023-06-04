@@ -1,5 +1,5 @@
 import { mockAxios } from '@infra/test'
-import axios from 'axios'
+import type axios from 'axios'
 
 import { mockPostRequest } from '@data/test'
 

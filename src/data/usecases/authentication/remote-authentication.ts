@@ -1,8 +1,9 @@
-import { HttpPostClient, HttpStatusCode } from '@data/protocols/http'
+import type { HttpPostClient } from '@data/protocols/http'
+import { HttpStatusCode } from '@data/protocols/http'
 
 import { InvalidCredentialsError, UnexpectedError } from '@domain/errors'
-import { AccountModel } from '@domain/models'
-import { Authentication, AuthenticationParams } from '@domain/usecases'
+import type { AccountModel } from '@domain/models'
+import type { Authentication, AuthenticationParams } from '@domain/usecases'
 
 export class RemoteAuthentication implements Authentication {
   // eslint-disable-next-line no-useless-constructor
