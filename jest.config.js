@@ -1,6 +1,6 @@
 module.exports = {
   roots: ['<rootDir>/src'],
-  collectCoverageFrom: ['<rootDir>/src/**/*.{ts,tsx}'],
+  collectCoverageFrom: ['<rootDir>/src/**/*.{ts,tsx}', '!**/*.d.ts'],
   coverageDirectory: 'coverage',
   testEnvironment: 'jsdom',
   transform: {
@@ -10,6 +10,7 @@ module.exports = {
     '@data/(.*)': ['<rootDir>/src/data/$1'],
     '@domain/(.*)': ['<rootDir>/src/domain/$1'],
     '@infra/(.*)': ['<rootDir>/src/infra/$1'],
-    '@main/(.*)': ['<rootDir>/src/main/$1']
+    '@main/(.*)': ['<rootDir>/src/main/$1'],
+    '\\.scss$': 'identity-obj-proxy'
   }
 }

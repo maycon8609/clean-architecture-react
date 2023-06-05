@@ -1,11 +1,13 @@
 node_modules
-.vscode
-.jest
 coverage
 dist
 public
-src/ui/assets/*
+assets/*
+.vscode
+
+.jest
 .prettierignore
 .gitattributes
 .gitignore
+.scss
 yarn.lock
