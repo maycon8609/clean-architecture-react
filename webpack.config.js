@@ -7,8 +7,8 @@ module.exports = {
   entry: './src/main/index.tsx',
   output: {
     path: path.join(__dirname, 'public', 'js'),
-    publicPath: path.join(__dirname, 'public', 'js'),
-    fileName: 'bundle.js'
+    filename: 'bundle.js',
+    publicPath: '/js/'
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.scss'],
@@ -16,7 +16,8 @@ module.exports = {
       '@data': path.join(__dirname, 'src', 'data'),
       '@domain': path.join(__dirname, 'src', 'domain'),
       '@infra': path.join(__dirname, 'src', 'infra'),
-      '@main': path.join(__dirname, 'src', 'main')
+      '@main': path.join(__dirname, 'src', 'main'),
+      '@presentation': path.join(__dirname, 'src', 'presentation')
     }
   },
   module: {
@@ -29,30 +30,28 @@ module.exports = {
       {
         test: /\.scss$/,
         use: [
-          {
-            loader: 'style-loader'
-          },
+          'style-loader',
           {
             loader: 'css-loader',
             options: {
               modules: true
             }
           },
-          {
-            loader: 'sass-loader'
-          }
+          'sass-loader'
         ]
       }
     ]
   },
   devServer: {
-    contentBase: './public',
-    writeToDisk: true,
-    historyApiFallback: true
+    static: {
+      directory: path.join(__dirname, 'public')
+    },
+    compress: true,
+    port: 9000
   },
   externals: {
     react: 'React',
-    'react-dom': 'ReactDom'
+    'react-dom': 'ReactDOM'
   },
   plugins: [new CleanWebpackPlugin()]
 }
