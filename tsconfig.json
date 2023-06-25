@@ -12,7 +12,8 @@
       "@data/*": ["data/*"],
       "@domain/*": ["domain/*"],
       "@infra/*": ["infra/*"],
-      "@main/*": ["main/*"]
+      "@main/*": ["main/*"],
+      "@presentation/*": ["presentation/*"]
     },
     "allowJs": true,
     "resolveJsonModule": true,
