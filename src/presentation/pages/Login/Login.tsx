@@ -1,7 +1,12 @@
 import React from 'react'
 import type { FC } from 'react'
 
-import { Field, Footer, HeaderLogin, Spinner } from '@presentation/components'
+import {
+  Field,
+  Footer,
+  FormStatus,
+  HeaderLogin
+} from '@presentation/components'
 
 import Styles from './LoginStyles.scss'
 
@@ -23,11 +28,7 @@ export const Login: FC = () => {
 
         <span className={Styles.link}>Criar conta</span>
 
-        <div className={Styles.errorWrap}>
-          <Spinner className={Styles.spinner} />
-
-          <span className={Styles.error}>Error</span>
-        </div>
+        <FormStatus />
       </form>
 
       <Footer />
