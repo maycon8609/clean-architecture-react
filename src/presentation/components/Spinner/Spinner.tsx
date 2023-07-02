@@ -1,5 +1,5 @@
-import type { FC, HTMLAttributes } from 'react'
 import React from 'react'
+import type { FC, HTMLAttributes } from 'react'
 
 import Styles from './SpinnerStyles.scss'
 
