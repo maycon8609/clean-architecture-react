@@ -1,17 +1,14 @@
 import React from 'react'
 import type { FC } from 'react'
 
-import { Logo, Spinner } from '@presentation/components'
+import { Footer, HeaderLogin, Spinner } from '@presentation/components'
 
 import Styles from './LoginStyles.scss'
 
 export const Login: FC = () => {
   return (
     <div className={Styles.login}>
-      <header className={Styles.header}>
-        <Logo />
-        <h1>4Dev - enquetes para Programadores</h1>
-      </header>
+      <HeaderLogin />
 
       <form className={Styles.form}>
         <h2>Login</h2>
@@ -43,7 +40,7 @@ export const Login: FC = () => {
         </div>
       </form>
 
-      <footer className={Styles.footer} />
+      <Footer />
     </div>
   )
 }
