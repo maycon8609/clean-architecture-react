@@ -1,7 +1,7 @@
 import React from 'react'
 import type { FC } from 'react'
 
-import { Footer, HeaderLogin, Spinner } from '@presentation/components'
+import { Field, Footer, HeaderLogin, Spinner } from '@presentation/components'
 
 import Styles from './LoginStyles.scss'
 
@@ -13,19 +13,9 @@ export const Login: FC = () => {
       <form className={Styles.form}>
         <h2>Login</h2>
 
-        <div className={Styles.inputWrap}>
-          <input type="email" name="email" placeholder="Digite seu e-mail" />
-          <span className={Styles.status}>🔴️</span>
-        </div>
+        <Field type="email" name="email" placeholder="Digite seu e-mail" />
 
-        <div className={Styles.inputWrap}>
-          <input
-            type="password"
-            name="password"
-            placeholder="Digite sua senha"
-          />
-          <span className={Styles.status}>🔴️</span>
-        </div>
+        <Field type="password" name="password" placeholder="Digite sua senha" />
 
         <button className={Styles.buttonSubmit} type="submit">
           Entrar
