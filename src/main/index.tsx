@@ -1,7 +1,13 @@
-import React from 'react'
+import React, { StrictMode } from 'react'
 
 import ReactDom from 'react-dom'
+import { RouterProvider } from 'react-router-dom'
 
-import { Login } from '@presentation/pages'
+import { routes } from '@presentation/routes'
 
-ReactDom.render(<Login />, document.getElementById('main'))
+ReactDom.render(
+  <StrictMode>
+    <RouterProvider router={routes} />
+  </StrictMode>,
+  document.getElementById('main')
+)
