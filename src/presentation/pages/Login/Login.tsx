@@ -1,6 +1,8 @@
 import React from 'react'
 import type { FC } from 'react'
 
+import type { LoginProps } from './types'
+
 import {
   Field,
   Footer,
@@ -10,28 +12,51 @@ import {
 
 import Styles from './LoginStyles.scss'
 
-export const Login: FC = () => {
+export const Login: FC<LoginProps> = ({
+  'data-testid': datatestId = 'login',
+  ...props
+}) => {
   return (
-    <div className={Styles.login}>
-      <HeaderLogin />
+    <div
+      data-testid={`${datatestId}--container`}
+      className={Styles.login}
+      {...props}
+    >
+      <HeaderLogin data-testid={`${datatestId}--header`} />
 
-      <form className={Styles.form}>
+      <form className={Styles.form} data-testid={`${datatestId}--form`}>
         <h2>Login</h2>
 
-        <Field type="email" name="email" placeholder="Digite seu e-mail" />
+        <Field
+          data-testid={`${datatestId}--field-email`}
+          name="email"
+          placeholder="Digite seu e-mail"
+          type="email"
+        />
 
-        <Field type="password" name="password" placeholder="Digite sua senha" />
+        <Field
+          data-testid={`${datatestId}--field-password`}
+          name="password"
+          placeholder="Digite sua senha"
+          type="password"
+        />
 
-        <button className={Styles.buttonSubmit} type="submit">
+        <button
+          className={Styles.buttonSubmit}
+          data-testid={`${datatestId}--button-submit`}
+          type="submit"
+        >
           Entrar
         </button>
 
-        <span className={Styles.link}>Criar conta</span>
+        <span className={Styles.link} data-testid={`${datatestId}--link`}>
+          Criar conta
+        </span>
 
-        <FormStatus />
+        <FormStatus data-testid={`${datatestId}--form-status`} />
       </form>
 
-      <Footer />
+      <Footer data-testid={`${datatestId}--footer`} />
     </div>
   )
 }

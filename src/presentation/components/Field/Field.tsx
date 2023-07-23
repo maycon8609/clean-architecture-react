@@ -5,10 +5,15 @@ import type { FieldProps } from './types'
 
 import Styles from './FieldStyles.scss'
 
-export const Field: FC<FieldProps> = props => (
-  <div className={Styles.inputWrap}>
-    <input {...props} />
-    <span className={Styles.status}>🔴️</span>
+export const Field: FC<FieldProps> = ({
+  'data-testid': datatestId = 'field',
+  ...props
+}) => (
+  <div className={Styles.inputWrap} data-testid={`${datatestId}--container`}>
+    <input data-testid={`${datatestId}--input`} {...props} />
+    <span className={Styles.status} data-testid={`${datatestId}--status`}>
+      🔴️
+    </span>
   </div>
 )
 

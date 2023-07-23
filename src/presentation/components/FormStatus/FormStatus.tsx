@@ -1,15 +1,29 @@
 import React from 'react'
 import type { FC } from 'react'
 
+import type { FormStatusProps } from './types'
+
 import { Spinner } from '@presentation/components'
 
 import Styles from './FormStatusStyles.scss'
 
-export const FormStatus: FC = () => (
-  <div className={Styles.errorWrap}>
-    <Spinner className={Styles.spinner} />
+export const FormStatus: FC<FormStatusProps> = ({
+  'data-testid': datatestId = 'form-status',
+  ...props
+}) => (
+  <div
+    className={Styles.errorWrap}
+    data-testid={`${datatestId}--container`}
+    {...props}
+  >
+    <Spinner
+      className={Styles.spinner}
+      data-testid={`${datatestId}--spinner`}
+    />
 
-    <span className={Styles.error}>Error</span>
+    <span className={Styles.error} data-testid={`${datatestId}--error`}>
+      Error
+    </span>
   </div>
 )
 
