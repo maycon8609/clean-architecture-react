@@ -1,5 +1,7 @@
 import React from 'react'
-import type { FC } from 'react'
+import type { FC, FormEvent } from 'react'
+
+import { useForm } from '@presentation/contexts/form'
 
 import type { LoginProps } from './types'
 
@@ -16,6 +18,12 @@ export const Login: FC<LoginProps> = ({
   'data-testid': datatestId = 'login',
   ...props
 }) => {
+  const { isLoading } = useForm()
+
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+  }
+
   return (
     <div
       data-testid={`${datatestId}--container`}
@@ -24,7 +32,11 @@ export const Login: FC<LoginProps> = ({
     >
       <HeaderLogin data-testid={`${datatestId}--header`} />
 
-      <form className={Styles.form} data-testid={`${datatestId}--form`}>
+      <form
+        className={Styles.form}
+        data-testid={`${datatestId}--form`}
+        onSubmit={handleSubmit}
+      >
         <h2>Login</h2>
 
         <Field
@@ -53,7 +65,10 @@ export const Login: FC<LoginProps> = ({
           Criar conta
         </span>
 
-        <FormStatus data-testid={`${datatestId}--form-status`} />
+        <FormStatus
+          data-testid={`${datatestId}--form-status`}
+          isLoading={isLoading}
+        />
       </form>
 
       <Footer data-testid={`${datatestId}--footer`} />

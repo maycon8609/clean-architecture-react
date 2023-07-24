@@ -9,6 +9,7 @@ import Styles from './FormStatusStyles.scss'
 
 export const FormStatus: FC<FormStatusProps> = ({
   'data-testid': datatestId = 'form-status',
+  isLoading = false,
   ...props
 }) => (
   <div
@@ -16,10 +17,12 @@ export const FormStatus: FC<FormStatusProps> = ({
     data-testid={`${datatestId}--container`}
     {...props}
   >
-    <Spinner
-      className={Styles.spinner}
-      data-testid={`${datatestId}--spinner`}
-    />
+    {isLoading && (
+      <Spinner
+        className={Styles.spinner}
+        data-testid={`${datatestId}--spinner`}
+      />
+    )}
 
     <span className={Styles.error} data-testid={`${datatestId}--error`}>
       Error
