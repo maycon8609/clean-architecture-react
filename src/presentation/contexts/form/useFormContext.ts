@@ -2,7 +2,9 @@ import { useContext } from 'react'
 
 import { FormContext } from './FormContext'
 
-export const useForm = () => {
+import type { FormContextProps } from '..'
+
+export const useFormContext: () => FormContextProps = () => {
   const context = useContext(FormContext)
 
   if (!context) {

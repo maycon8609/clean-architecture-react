@@ -1,7 +1,7 @@
 import React from 'react'
 import type { FC, FormEvent } from 'react'
 
-import { useForm } from '@presentation/contexts/form'
+import { useFormContext } from '@presentation/contexts'
 
 import type { LoginProps } from './types'
 
@@ -18,7 +18,7 @@ export const Login: FC<LoginProps> = ({
   'data-testid': datatestId = 'login',
   ...props
 }) => {
-  const { isLoading } = useForm()
+  const { isLoading } = useFormContext()
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
