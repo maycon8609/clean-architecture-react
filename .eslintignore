@@ -9,5 +9,5 @@ assets/*
 .prettierignore
 .gitattributes
 .gitignore
-.scss
+*.scss
 yarn.lock
