@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { render, screen } from '@testing-library/react'
 import type { RenderOptions } from '@testing-library/react'
 
