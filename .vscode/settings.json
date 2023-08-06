@@ -6,5 +6,14 @@
     "source.fixAll.eslint": true
   },
   "typescript.validate.enable": true,
-  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact", "html", "mdx", "markdown"]
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "html",
+    "mdx",
+    "markdown"
+  ],
+  "typescript.tsdk": "node_modules/typescript/lib"
 }
