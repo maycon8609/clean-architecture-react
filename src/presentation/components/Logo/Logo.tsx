@@ -13,5 +13,3 @@ export const Logo: FC<LogoProps> = ({
     {...props}
   />
 )
-
-export default Logo

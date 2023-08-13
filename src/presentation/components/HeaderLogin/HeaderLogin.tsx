@@ -21,5 +21,3 @@ export const HeaderLogin: FC<HeaderLoginProps> = memo(
     </header>
   )
 )
-
-export default HeaderLogin

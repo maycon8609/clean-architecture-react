@@ -10,5 +10,3 @@ export const Footer: FC<FooterProps> = memo(
     <footer className={Styles.footer} data-testid={datatestId} {...props} />
   )
 )
-
-export default Footer

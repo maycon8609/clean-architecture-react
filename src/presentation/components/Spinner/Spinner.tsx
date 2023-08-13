@@ -22,5 +22,3 @@ export const Spinner: FC<SpinnerProps> = ({
     </div>
   )
 }
-
-export default Spinner

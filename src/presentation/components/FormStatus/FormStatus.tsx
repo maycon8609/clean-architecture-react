@@ -28,5 +28,3 @@ export const FormStatus: FC<FormStatusProps> = ({
     </span>
   </div>
 )
-
-export default FormStatus

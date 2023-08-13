@@ -74,5 +74,3 @@ export const Login: FC<LoginProps> = ({
     </div>
   )
 }
-
-export default Login

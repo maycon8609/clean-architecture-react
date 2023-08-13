@@ -15,5 +15,3 @@ export const Field: FC<FieldProps> = ({
     </span>
   </div>
 )
-
-export default Field
