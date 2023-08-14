@@ -1,6 +1,6 @@
 export * from './Field'
 export * from './Footer'
 export * from './FormStatus'
-export * from './HeaderLogin'
+export * from './Header'
 export * from './Logo'
 export * from './Spinner'

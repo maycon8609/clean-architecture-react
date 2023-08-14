@@ -1,14 +1,14 @@
 import React, { memo } from 'react'
 import type { FC } from 'react'
 
-import type { HeaderLoginProps } from './types'
+import type { HeaderProps } from './types'
 
 import { Logo } from '@presentation/components'
 
-import Styles from './HeaderLoginStyles.scss'
+import Styles from './HeaderStyles.scss'
 
-export const HeaderLogin: FC<HeaderLoginProps> = memo(
-  ({ 'data-testid': datatestId = 'header-login', ...props }) => (
+export const Header: FC<HeaderProps> = memo(
+  ({ 'data-testid': datatestId = 'header', ...props }) => (
     <header
       className={Styles.header}
       data-testid={`${datatestId}--container`}

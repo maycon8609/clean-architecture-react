@@ -4,12 +4,7 @@ import { useFormContext } from '@presentation/contexts'
 
 import type { LoginProps } from './types'
 
-import {
-  Field,
-  Footer,
-  FormStatus,
-  HeaderLogin
-} from '@presentation/components'
+import { Field, Footer, FormStatus, Header } from '@presentation/components'
 
 import Styles from './LoginStyles.scss'
 
@@ -29,7 +24,10 @@ export const Login: FC<LoginProps> = ({
       className={Styles.login}
       {...props}
     >
-      <HeaderLogin data-testid={`${datatestId}--header`} />
+      <Header
+        data-testid={`${datatestId}--header`}
+        label="4Dev - enquetes para Programadores"
+      />
 
       <form
         className={Styles.form}
