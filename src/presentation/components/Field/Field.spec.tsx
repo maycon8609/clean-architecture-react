@@ -35,7 +35,7 @@ describe('Field', () => {
 
   it('should run onChange function when typing in input', async () => {
     const onChange = jest.fn()
-    const value = faker.string.sample()
+    const value = faker.person.firstName()
     makeSut({ onChange })
 
     const input = screen.getByTestId('field--input')
