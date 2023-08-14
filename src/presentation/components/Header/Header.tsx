@@ -8,16 +8,14 @@ import { Logo } from '@presentation/components'
 import Styles from './HeaderStyles.scss'
 
 export const Header: FC<HeaderProps> = memo(
-  ({ 'data-testid': datatestId = 'header', ...props }) => (
+  ({ 'data-testid': datatestId = 'header', label, ...props }) => (
     <header
       className={Styles.header}
       data-testid={`${datatestId}--container`}
       {...props}
     >
       <Logo data-testid={`${datatestId}--logo`} />
-      <h1 data-testid={`${datatestId}--label`}>
-        4Dev - enquetes para Programadores
-      </h1>
+      <h1 data-testid={`${datatestId}--label`}>{label}</h1>
     </header>
   )
 )
