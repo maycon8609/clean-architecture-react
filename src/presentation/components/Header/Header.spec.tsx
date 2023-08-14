@@ -2,7 +2,6 @@ import { render, screen } from '@testing-library/react'
 import type { RenderOptions } from '@testing-library/react'
 
 import { faker } from '@faker-js/faker'
-import userEvent from '@testing-library/user-event'
 
 import type { HeaderProps } from './types'
 
@@ -16,21 +15,21 @@ const makeSut = (
   return render(component)
 }
 
-let userEventSetup = userEvent.setup()
-
-beforeEach(() => {
-  userEventSetup = userEvent.setup()
-})
-
 describe('Header', () => {
-  it('should run onChange function when typing in input', async () => {
-    const onChange = jest.fn()
-    const value = faker.string.sample()
-    makeSut({ onChange })
+  it('should render the logo', () => {
+    makeSut({})
 
-    const input = screen.getByTestId('field--input')
-    await userEventSetup.type(input, value)
+    const logo = screen.getByTestId('header--logo')
 
-    expect(onChange).toHaveBeenCalledTimes(value.length)
+    expect(logo).toBeVisible()
+  })
+
+  it('should render the label passed by parameter', () => {
+    const label = faker.string.sample()
+    makeSut({ label })
+
+    const headerLabel = screen.getByTestId('header--label')
+
+    expect(headerLabel).toHaveTextContent(label)
   })
 })
