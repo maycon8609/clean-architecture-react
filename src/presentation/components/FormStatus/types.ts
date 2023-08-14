@@ -5,5 +5,6 @@ export type FormStatusProps = DetailedHTMLProps<
   HTMLDivElement
 > & {
   'data-testid'?: string
+  errorMessage?: string
   isLoading?: boolean
 }

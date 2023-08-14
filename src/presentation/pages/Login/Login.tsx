@@ -66,6 +66,7 @@ export const Login: FC<LoginProps> = ({
 
         <FormStatus
           data-testid={`${datatestId}--form-status`}
+          errorMessage="Error"
           isLoading={isLoading}
         />
       </form>

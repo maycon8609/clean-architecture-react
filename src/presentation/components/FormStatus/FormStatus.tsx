@@ -8,6 +8,7 @@ import Styles from './FormStatusStyles.scss'
 
 export const FormStatus: FC<FormStatusProps> = ({
   'data-testid': datatestId = 'form-status',
+  errorMessage,
   isLoading = false,
   ...props
 }) => (
@@ -23,8 +24,10 @@ export const FormStatus: FC<FormStatusProps> = ({
       />
     )}
 
-    <span className={Styles.error} data-testid={`${datatestId}--error`}>
-      Error
-    </span>
+    {errorMessage && (
+      <span className={Styles.error} data-testid={`${datatestId}--error`}>
+        {errorMessage}
+      </span>
+    )}
   </div>
 )
