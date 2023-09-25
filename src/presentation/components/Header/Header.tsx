@@ -1,9 +1,9 @@
-import React, { memo } from 'react'
+import { memo } from 'react'
 import type { FC } from 'react'
 
 import type { HeaderProps } from './types'
 
-import { Logo } from '@presentation/components'
+import { Logo } from '@presentation/components/Logo'
 
 import Styles from './HeaderStyles.scss'
 

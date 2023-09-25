@@ -8,7 +8,7 @@ import type { FormStatusProps } from './types'
 import { FormStatus } from './FormStatus'
 
 const makeSut = (
-  props: Partial<FormStatusProps>
+  props: Partial<FormStatusProps> = {}
 ): Omit<RenderOptions, 'wrapper'> => {
   const component = <FormStatus {...props} />
 
@@ -34,7 +34,7 @@ describe('FormStatus', () => {
   })
 
   it('should hide the spinner if isLoading is false', () => {
-    makeSut({})
+    makeSut()
 
     const spinner = screen.queryByTestId('form-status--spinner--container')
 

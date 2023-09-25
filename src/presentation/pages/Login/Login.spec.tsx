@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import type { RenderOptions } from '@testing-library/react'
 
-import type { FormContextProps } from '@presentation/contexts'
+import type { FormContextProps } from '@presentation/contexts/form'
 
 import type { LoginProps } from './types'
 
@@ -12,7 +12,7 @@ const mockedUseFormContext: FormContextProps = {
   isLoading: false
 }
 
-jest.mock('@presentation/contexts', () => ({
+jest.mock('@presentation/contexts/form', () => ({
   useFormContext: () => mockedUseFormContext
 }))
 

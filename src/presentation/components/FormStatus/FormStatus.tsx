@@ -2,7 +2,7 @@ import type { FC } from 'react'
 
 import type { FormStatusProps } from './types'
 
-import { Spinner } from '@presentation/components'
+import { Spinner } from '@presentation/components/Spinner'
 
 import Styles from './FormStatusStyles.scss'
 

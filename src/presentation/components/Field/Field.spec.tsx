@@ -6,12 +6,12 @@ import userEvent from '@testing-library/user-event'
 
 import type { FieldProps } from './types'
 
-import { Field } from '.'
+import { Field } from './Field'
 
 const makeSut = ({
   onChange = jest.fn(),
   ...props
-}: Partial<FieldProps>): Omit<RenderOptions, 'wrapper'> => {
+}: Partial<FieldProps> = {}): Omit<RenderOptions, 'wrapper'> => {
   const component = <Field onChange={onChange} {...props} />
 
   return render(component)
@@ -45,7 +45,7 @@ describe('Field', () => {
   })
 
   it('should contain the status icon', () => {
-    makeSut({})
+    makeSut()
 
     const statusIcon = screen.getByTestId('field--status')
 

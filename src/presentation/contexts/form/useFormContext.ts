@@ -1,8 +1,8 @@
 import { useContext } from 'react'
 
-import { FormContext } from './FormContext'
+import type { FormContextProps } from './types'
 
-import type { FormContextProps } from '..'
+import { FormContext } from './FormContext'
 
 export const useFormContext: () => FormContextProps = () => {
   const context = useContext(FormContext)

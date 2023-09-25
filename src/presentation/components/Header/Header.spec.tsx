@@ -5,10 +5,10 @@ import { faker } from '@faker-js/faker'
 
 import type { HeaderProps } from './types'
 
-import { Header } from '.'
+import { Header } from './Header'
 
 const makeSut = (
-  props: Partial<HeaderProps>
+  props: Partial<HeaderProps> = {}
 ): Omit<RenderOptions, 'wrapper'> => {
   const component = <Header {...props} />
 
@@ -17,7 +17,7 @@ const makeSut = (
 
 describe('Header', () => {
   it('should render the logo', () => {
-    makeSut({})
+    makeSut()
 
     const logo = screen.getByTestId('header--logo')
 

@@ -5,7 +5,9 @@ import type { LogoProps } from './types'
 
 import { Logo } from './Logo'
 
-const makeSut = (props: Partial<LogoProps>): Omit<RenderOptions, 'wrapper'> => {
+const makeSut = (
+  props: Partial<LogoProps> = {}
+): Omit<RenderOptions, 'wrapper'> => {
   const component = <Logo {...props} />
 
   return render(component)
@@ -13,7 +15,7 @@ const makeSut = (props: Partial<LogoProps>): Omit<RenderOptions, 'wrapper'> => {
 
 describe('Logo', () => {
   it('should render the componente', () => {
-    makeSut({})
+    makeSut()
 
     const logo = screen.getByTestId('logo')
 
