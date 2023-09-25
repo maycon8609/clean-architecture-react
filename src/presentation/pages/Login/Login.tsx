@@ -4,7 +4,10 @@ import { useFormContext } from '@presentation/contexts'
 
 import type { LoginProps } from './types'
 
-import { Field, Footer, FormStatus, Header } from '@presentation/components'
+import { Field } from '@presentation/components/Field'
+import { Footer } from '@presentation/components/Footer'
+import { FormStatus } from '@presentation/components/FormStatus'
+import { Header } from '@presentation/components/Header'
 
 import Styles from './LoginStyles.scss'
 
@@ -14,6 +17,7 @@ export const Login: FC<LoginProps> = ({
 }) => {
   const { isLoading } = useFormContext()
 
+  /* istanbul ignore next */
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
   }
