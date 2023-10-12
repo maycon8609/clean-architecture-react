@@ -15,7 +15,7 @@ export const Login: FC<LoginProps> = ({
   'data-testid': datatestId = 'login',
   ...props
 }) => {
-  const { isLoading } = useFormContext()
+  const { errorMessage, isLoading } = useFormContext()
 
   /* istanbul ignore next */
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -68,7 +68,7 @@ export const Login: FC<LoginProps> = ({
 
         <FormStatus
           data-testid={`${datatestId}--form-status`}
-          errorMessage="Error"
+          errorMessage={errorMessage}
           isLoading={isLoading}
         />
       </form>

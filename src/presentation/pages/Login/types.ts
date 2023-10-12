@@ -6,7 +6,3 @@ export type LoginProps = DetailedHTMLProps<
 > & {
   'data-testid'?: string
 }
-
-export type LoginFormState = {
-  isLoading: boolean
-}

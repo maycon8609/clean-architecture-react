@@ -8,7 +8,7 @@ export const useFormContext: () => FormContextProps = () => {
   const context = useContext(FormContext)
 
   if (!context) {
-    throw new Error('useForm deve ser usado dentro do ThemeProvider')
+    throw new Error('useForm deve ser usado dentro do FormProvider')
   }
 
   return context
