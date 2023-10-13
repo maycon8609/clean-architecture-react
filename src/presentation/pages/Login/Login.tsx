@@ -57,6 +57,7 @@ export const Login: FC<LoginProps> = ({
         <button
           className={Styles.buttonSubmit}
           data-testid={`${datatestId}--button-submit`}
+          disabled
           type="submit"
         >
           Entrar
