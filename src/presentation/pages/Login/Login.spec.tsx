@@ -8,10 +8,14 @@ import type { LoginProps } from './types'
 import { Login } from './Login'
 
 const mockedUseFormContext: FormContextProps = {
+  emailErrorMessage: '',
   errorMessage: '',
-  handleSetErrorMessage: jest.fn(),
-  handleSetIsLoading: jest.fn(),
-  isLoading: false
+  isLoading: false,
+  onSetEmailErrorMessage: jest.fn(),
+  onSetErrorMessage: jest.fn(),
+  onSetIsLoading: jest.fn(),
+  onSetPasswordErrorMessage: jest.fn(),
+  passwordErrorMessage: ''
 }
 
 jest.mock('@presentation/contexts/form', () => ({
