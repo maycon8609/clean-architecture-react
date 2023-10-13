@@ -83,4 +83,12 @@ describe('Login', () => {
 
     expect(createAccountSpan).toBeInTheDocument()
   })
+
+  it('should initialize the login button disabled', () => {
+    makeSut()
+
+    const submitButton = screen.getByTestId('login--button-submit')
+
+    expect(submitButton).toBeDisabled()
+  })
 })
