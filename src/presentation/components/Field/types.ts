@@ -5,4 +5,5 @@ export type FieldProps = DetailedHTMLProps<
   HTMLInputElement
 > & {
   'data-testid'?: string
+  errorMessage?: string
 }
