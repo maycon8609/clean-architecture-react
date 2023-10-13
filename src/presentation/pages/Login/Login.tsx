@@ -15,7 +15,8 @@ export const Login: FC<LoginProps> = ({
   'data-testid': datatestId = 'login',
   ...props
 }) => {
-  const { errorMessage, isLoading } = useFormContext()
+  const { isLoading, emailErrorMessage, errorMessage, passwordErrorMessage } =
+    useFormContext()
 
   /* istanbul ignore next */
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -42,6 +43,7 @@ export const Login: FC<LoginProps> = ({
 
         <Field
           data-testid={`${datatestId}--field-email`}
+          errorMessage={emailErrorMessage}
           name="email"
           placeholder="Digite seu e-mail"
           type="email"
@@ -49,6 +51,7 @@ export const Login: FC<LoginProps> = ({
 
         <Field
           data-testid={`${datatestId}--field-password`}
+          errorMessage={passwordErrorMessage}
           name="password"
           placeholder="Digite sua senha"
           type="password"

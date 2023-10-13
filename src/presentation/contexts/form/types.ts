@@ -1,9 +1,10 @@
-import type { FormStatusProps } from '@presentation/components/FormStatus'
-
-export type FormContextProps = Pick<
-  FormStatusProps,
-  'errorMessage' | 'isLoading'
-> & {
-  handleSetErrorMessage: (errorMessageState: string) => void
-  handleSetIsLoading: (isLoading: boolean) => void
+export type FormContextProps = {
+  emailErrorMessage?: string
+  errorMessage?: string
+  isLoading?: boolean
+  onSetEmailErrorMessage: (emailErrorMessageState: string) => void
+  onSetErrorMessage: (errorMessageState: string) => void
+  onSetIsLoading: (isLoading: boolean) => void
+  onSetPasswordErrorMessage: (passwordErrorMessageState: string) => void
+  passwordErrorMessage?: string
 }
