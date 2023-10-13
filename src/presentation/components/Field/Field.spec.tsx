@@ -51,4 +51,13 @@ describe('Field', () => {
 
     expect(statusIcon).toBeVisible()
   })
+
+  it('should contain in the input title the text passed in the errorMessage property', () => {
+    const errorMessage = faker.string.alpha({ length: { min: 5, max: 10 } })
+    makeSut({ errorMessage })
+
+    const fieldStatus = screen.getByTestId('field--status')
+
+    expect(fieldStatus).toHaveAttribute('title', errorMessage)
+  })
 })
