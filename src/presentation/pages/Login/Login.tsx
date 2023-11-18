@@ -20,8 +20,18 @@ export const Login: FC<LoginProps> = ({
   const { formState, setEmailContent, setPasswordContent } = useFormContext()
 
   useEffect(() => {
-    validation.validate({ email: formState.emailContent })
+    // TODO: Criar hook useEffectSkipFirst para substituir este if
+    if (formState.emailContent) {
+      validation.validate({ email: formState.emailContent })
+    }
   }, [formState.emailContent, validation])
+
+  useEffect(() => {
+    // TODO: Criar hook useEffectSkipFirst para substituir este if
+    if (formState.passwordContent) {
+      validation.validate({ password: formState.passwordContent })
+    }
+  }, [formState.passwordContent, validation])
 
   /* istanbul ignore next */
   function handleSubmit(event: FormEvent<HTMLFormElement>) {

@@ -108,11 +108,19 @@ describe('Login', () => {
     expect(submitButton).toBeDisabled()
   })
 
-  it('deveria chamar o Validator ao digitar no campo de email', async () => {
+  it('should validate the email value', async () => {
     const emailContent = 'any@email.com'
-    mockedUseFormContext.formState = { emailContent }
+    mockedUseFormContext.formState = { emailContent, passwordContent: '' }
     makeSut()
 
     expect(validation.input).toEqual({ email: emailContent })
+  })
+
+  it('should validate the password value', async () => {
+    const passwordContent = 'any_password'
+    mockedUseFormContext.formState = { emailContent: '', passwordContent }
+    makeSut()
+
+    expect(validation.input).toEqual({ password: passwordContent })
   })
 })
