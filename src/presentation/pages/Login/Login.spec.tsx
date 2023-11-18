@@ -24,10 +24,12 @@ jest.mock('@presentation/contexts/form', () => ({
 
 class ValidationSpy implements IValidation {
   errorMessage: string
-  input: object
+  fieldName: string
+  fieldValue: string
 
-  validate(input: object): string {
-    this.input = input
+  validate(fieldName: string, fieldValue: string): string {
+    this.fieldName = fieldName
+    this.fieldValue = fieldValue
     return this.errorMessage
   }
 }
@@ -113,7 +115,8 @@ describe('Login', () => {
     mockedUseFormContext.formState = { emailContent, passwordContent: '' }
     makeSut()
 
-    expect(validation.input).toEqual({ email: emailContent })
+    expect(validation.fieldName).toBe('email')
+    expect(validation.fieldValue).toEqual(emailContent)
   })
 
   it('should validate the password value', async () => {
@@ -121,6 +124,7 @@ describe('Login', () => {
     mockedUseFormContext.formState = { emailContent: '', passwordContent }
     makeSut()
 
-    expect(validation.input).toEqual({ password: passwordContent })
+    expect(validation.fieldName).toBe('password')
+    expect(validation.fieldValue).toEqual(passwordContent)
   })
 })
