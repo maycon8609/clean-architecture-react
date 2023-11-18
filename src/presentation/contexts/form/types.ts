@@ -1,10 +1,18 @@
-export type FormContextProps = {
+export type IFormContextState = {
+  emailContent?: string
   emailErrorMessage?: string
   errorMessage?: string
   isLoading?: boolean
-  onSetEmailErrorMessage: (emailErrorMessageState: string) => void
-  onSetErrorMessage: (errorMessageState: string) => void
-  onSetIsLoading: (isLoading: boolean) => void
-  onSetPasswordErrorMessage: (passwordErrorMessageState: string) => void
+  passwordContent?: string
   passwordErrorMessage?: string
+}
+
+export type IFormContextProps = {
+  formState: IFormContextState
+  setEmailContent: (emailContent: string) => void
+  setEmailErrorMessage: (emailErrorMessage: string) => void
+  setErrorMessage: (errorMessage: string) => void
+  setIsLoading: (isLoading: boolean) => void
+  setPasswordContent: (passwordContent: string) => void
+  setPasswordErrorMessage: (passwordErrorMessage: string) => void
 }

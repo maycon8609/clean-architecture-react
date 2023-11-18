@@ -1,42 +1,71 @@
-import React, { createContext, useState } from 'react'
+import { createContext, useState } from 'react'
 
-import type { FormContextProps } from './types'
+import type { IFormContextProps, IFormContextState } from './types'
 
-export const FormContext = createContext({} as FormContextProps)
+export const FormContext = createContext({} as IFormContextProps)
 
 export const FormProvider = ({ children }) => {
-  const [emailErrorMessage, setEmailErrorMessage] = useState('')
-  const [errorMessage, setErrorMessage] = useState('')
-  const [isLoading, setIsLoading] = useState(true)
-  const [passwordErrorMessage, setPasswordErrorMessage] = useState('')
+  const [formState, setFormState] = useState<IFormContextState>({
+    emailContent: '',
+    emailErrorMessage: '',
+    errorMessage: '',
+    isLoading: false,
+    passwordContent: '',
+    passwordErrorMessage: ''
+  })
 
-  function onSetEmailErrorMessage(emailErrorMessageState: string) {
-    setEmailErrorMessage(emailErrorMessageState)
+  function setEmailContent(emailContent: string) {
+    setFormState(oldState => ({
+      ...oldState,
+      emailContent
+    }))
   }
 
-  function onSetErrorMessage(errorMessageState: string) {
-    setErrorMessage(errorMessageState)
+  function setEmailErrorMessage(emailErrorMessage: string) {
+    setFormState(oldState => ({
+      ...oldState,
+      emailErrorMessage
+    }))
   }
 
-  function onSetIsLoading(isLoadingState: boolean) {
-    setIsLoading(isLoadingState)
+  function setErrorMessage(errorMessage: string) {
+    setFormState(oldState => ({
+      ...oldState,
+      errorMessage
+    }))
   }
 
-  function onSetPasswordErrorMessage(passwordErrorMessageState: string) {
-    setPasswordErrorMessage(passwordErrorMessageState)
+  function setIsLoading(isLoading: boolean) {
+    setFormState(oldState => ({
+      ...oldState,
+      isLoading
+    }))
+  }
+
+  function setPasswordContent(passwordContent: string) {
+    setFormState(oldState => ({
+      ...oldState,
+      passwordContent
+    }))
+  }
+
+  function setPasswordErrorMessage(passwordErrorMessage: string) {
+    setFormState(oldState => ({
+      ...oldState,
+      passwordErrorMessage
+    }))
   }
 
   return (
     <FormContext.Provider
       value={{
-        emailErrorMessage,
-        errorMessage,
-        isLoading,
-        onSetEmailErrorMessage,
-        onSetErrorMessage,
-        onSetIsLoading,
-        onSetPasswordErrorMessage,
-        passwordErrorMessage
+        formState,
+        setEmailContent,
+        setEmailErrorMessage,
+        setErrorMessage,
+        setIsLoading,
+        setPasswordContent,
+        setPasswordErrorMessage
       }}
     >
       {children}

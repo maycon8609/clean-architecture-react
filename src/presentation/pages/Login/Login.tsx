@@ -1,4 +1,5 @@
 import type { FC, FormEvent } from 'react'
+import { useEffect } from 'react'
 
 import { useFormContext } from '@presentation/contexts/form'
 
@@ -13,10 +14,14 @@ import Styles from './LoginStyles.scss'
 
 export const Login: FC<LoginProps> = ({
   'data-testid': datatestId = 'login',
+  validation,
   ...props
 }) => {
-  const { isLoading, emailErrorMessage, errorMessage, passwordErrorMessage } =
-    useFormContext()
+  const { formState, setEmailContent, setPasswordContent } = useFormContext()
+
+  useEffect(() => {
+    validation.validate({ email: formState.emailContent })
+  }, [formState.emailContent, validation])
 
   /* istanbul ignore next */
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -43,16 +48,18 @@ export const Login: FC<LoginProps> = ({
 
         <Field
           data-testid={`${datatestId}--field-email`}
-          errorMessage={emailErrorMessage}
+          errorMessage={formState.emailErrorMessage}
           name="email"
+          onChange={event => setEmailContent(event.target.value)}
           placeholder="Digite seu e-mail"
           type="email"
         />
 
         <Field
           data-testid={`${datatestId}--field-password`}
-          errorMessage={passwordErrorMessage}
+          errorMessage={formState.passwordErrorMessage}
           name="password"
+          onChange={event => setPasswordContent(event.target.value)}
           placeholder="Digite sua senha"
           type="password"
         />
@@ -72,8 +79,8 @@ export const Login: FC<LoginProps> = ({
 
         <FormStatus
           data-testid={`${datatestId}--form-status`}
-          errorMessage={errorMessage}
-          isLoading={isLoading}
+          errorMessage={formState.errorMessage}
+          isLoading={formState.isLoading}
         />
       </form>
 
