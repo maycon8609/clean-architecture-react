@@ -1,31 +1,43 @@
 import { render, screen } from '@testing-library/react'
 import type { RenderOptions } from '@testing-library/react'
 
-import type { FormContextProps } from '@presentation/contexts/form'
+import type { IFormContextProps } from '@presentation/contexts/form'
+import type { IValidation } from '@presentation/protocols/validation'
 
 import type { LoginProps } from './types'
 
 import { Login } from './Login'
 
-const mockedUseFormContext: FormContextProps = {
-  emailErrorMessage: '',
-  errorMessage: '',
-  isLoading: false,
-  onSetEmailErrorMessage: jest.fn(),
-  onSetErrorMessage: jest.fn(),
-  onSetIsLoading: jest.fn(),
-  onSetPasswordErrorMessage: jest.fn(),
-  passwordErrorMessage: ''
+const mockedUseFormContext: IFormContextProps = {
+  formState: {},
+  setEmailContent: jest.fn(),
+  setEmailErrorMessage: jest.fn(),
+  setErrorMessage: jest.fn(),
+  setIsLoading: jest.fn(),
+  setPasswordContent: jest.fn(),
+  setPasswordErrorMessage: jest.fn()
 }
 
 jest.mock('@presentation/contexts/form', () => ({
   useFormContext: () => mockedUseFormContext
 }))
 
+class ValidationSpy implements IValidation {
+  errorMessage: string
+  input: object
+
+  validate(input: object): string {
+    this.input = input
+    return this.errorMessage
+  }
+}
+
+const validation = new ValidationSpy()
+
 const makeSut = (
   props: Partial<LoginProps> = {}
 ): Omit<RenderOptions, 'wrapper'> => {
-  const component = <Login {...props} />
+  const component = <Login validation={validation} {...props} />
 
   return render(component)
 }
@@ -94,5 +106,13 @@ describe('Login', () => {
     const submitButton = screen.getByTestId('login--button-submit')
 
     expect(submitButton).toBeDisabled()
+  })
+
+  it('deveria chamar o Validator ao digitar no campo de email', async () => {
+    const emailContent = 'any@email.com'
+    mockedUseFormContext.formState = { emailContent }
+    makeSut()
+
+    expect(validation.input).toEqual({ email: emailContent })
   })
 })
