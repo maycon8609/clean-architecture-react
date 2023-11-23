@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react'
 import type { RenderOptions } from '@testing-library/react'
 
 import type { IFormContextProps } from '@presentation/contexts/form'
-import type { IValidation } from '@presentation/protocols/validation'
+import { ValidationSpy } from '@presentation/test/mock-validation'
 
 import type { LoginProps } from './types'
 
@@ -21,18 +21,6 @@ const mockedUseFormContext: IFormContextProps = {
 jest.mock('@presentation/contexts/form', () => ({
   useFormContext: () => mockedUseFormContext
 }))
-
-class ValidationSpy implements IValidation {
-  errorMessage: string
-  fieldName: string
-  fieldValue: string
-
-  validate(fieldName: string, fieldValue: string): string {
-    this.fieldName = fieldName
-    this.fieldValue = fieldValue
-    return this.errorMessage
-  }
-}
 
 const validation = new ValidationSpy()
 
