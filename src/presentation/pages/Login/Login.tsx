@@ -17,21 +17,38 @@ export const Login: FC<LoginProps> = ({
   validation,
   ...props
 }) => {
-  const { formState, setEmailContent, setPasswordContent } = useFormContext()
+  const {
+    formState,
+    setEmailContent,
+    setEmailErrorMessage,
+    setPasswordContent,
+    setPasswordErrorMessage
+  } = useFormContext()
 
   useEffect(() => {
-    // TODO: Criar hook useEffectSkipFirst para substituir este if
-    if (formState.emailContent) {
-      validation.validate('email', formState.emailContent)
-    }
-  }, [formState.emailContent, validation])
+    const validateEmailErrorMessage = validation.validate(
+      'email',
+      formState.emailContent
+    )
+    const validatePasswordErrorMessage = validation.validate(
+      'password',
+      formState.passwordContent
+    )
 
-  useEffect(() => {
-    // TODO: Criar hook useEffectSkipFirst para substituir este if
-    if (formState.passwordContent) {
-      validation.validate('password', formState.passwordContent)
+    if (validateEmailErrorMessage) {
+      setEmailErrorMessage(validateEmailErrorMessage)
     }
-  }, [formState.passwordContent, validation])
+
+    if (validatePasswordErrorMessage) {
+      setPasswordErrorMessage(validatePasswordErrorMessage)
+    }
+  }, [
+    formState.emailContent,
+    formState.passwordContent,
+    setEmailErrorMessage,
+    setPasswordErrorMessage,
+    validation
+  ])
 
   /* istanbul ignore next */
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
