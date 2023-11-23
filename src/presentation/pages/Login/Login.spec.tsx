@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import type { RenderOptions } from '@testing-library/react'
 
+import { faker } from '@faker-js/faker'
 import type { IFormContextProps } from '@presentation/contexts/form'
 import { ValidationSpy } from '@presentation/test/mock-validation'
 
@@ -99,7 +100,7 @@ describe('Login', () => {
   })
 
   it('should validate the email value', async () => {
-    const emailContent = 'any@email.com'
+    const emailContent = faker.internet.email()
     mockedUseFormContext.formState = { emailContent, passwordContent: '' }
     makeSut()
 
@@ -108,7 +109,7 @@ describe('Login', () => {
   })
 
   it('should validate the password value', async () => {
-    const passwordContent = 'any_password'
+    const passwordContent = faker.internet.password()
     mockedUseFormContext.formState = { emailContent: '', passwordContent }
     makeSut()
 
