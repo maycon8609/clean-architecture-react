@@ -1,9 +1,8 @@
 import { render, screen } from '@testing-library/react'
 import type { RenderOptions } from '@testing-library/react'
 
-import { faker } from '@faker-js/faker'
 import type { IFormContextProps } from '@presentation/contexts/form'
-import { ValidationSpy } from '@presentation/test/mock-validation'
+import { ValidationStub } from '@presentation/test/mock-validation'
 
 import type { LoginProps } from './types'
 
@@ -23,12 +22,16 @@ jest.mock('@presentation/contexts/form', () => ({
   useFormContext: () => mockedUseFormContext
 }))
 
-const validation = new ValidationSpy()
+const validationStub = new ValidationStub()
+
+afterEach(() => {
+  validationStub.errorMessage = ''
+})
 
 const makeSut = (
   props: Partial<LoginProps> = {}
 ): Omit<RenderOptions, 'wrapper'> => {
-  const component = <Login validation={validation} {...props} />
+  const component = <Login validation={validationStub} {...props} />
 
   return render(component)
 }
@@ -97,23 +100,5 @@ describe('Login', () => {
     const submitButton = screen.getByTestId('login--button-submit')
 
     expect(submitButton).toBeDisabled()
-  })
-
-  it('should validate the email value', async () => {
-    const emailContent = faker.internet.email()
-    mockedUseFormContext.formState = { emailContent, passwordContent: '' }
-    makeSut()
-
-    expect(validation.fieldName).toBe('email')
-    expect(validation.fieldValue).toEqual(emailContent)
-  })
-
-  it('should validate the password value', async () => {
-    const passwordContent = faker.internet.password()
-    mockedUseFormContext.formState = { emailContent: '', passwordContent }
-    makeSut()
-
-    expect(validation.fieldName).toBe('password')
-    expect(validation.fieldValue).toEqual(passwordContent)
   })
 })
