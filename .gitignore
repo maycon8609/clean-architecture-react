@@ -15,10 +15,6 @@
 .DS_Store
 *.pem
 
-
-# NPM
-.npmrc
-
 # debug
 npm-debug.log*
 yarn-debug.log*
