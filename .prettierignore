@@ -1,6 +1,7 @@
 .jest
 coverage
 dist
+public
 src/ui/assets/*
 .eslintignore
 .gitattributes
